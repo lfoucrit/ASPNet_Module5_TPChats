@@ -9,7 +9,7 @@ namespace Module5_TP_Chat.Controllers
 {
     public class ChatController : Controller
     {
-        private List<Chat> chats = new List<Chat>
+        private static List<Chat> chats = new List<Chat>
             {
                 new Chat{Id=1, Nom="Felix", Age=3, Couleur="Roux" },
                 new Chat{Id=2, Nom="Minette", Age=1, Couleur="Noire" },
@@ -46,15 +46,15 @@ namespace Module5_TP_Chat.Controllers
         {
             try
             {
-                Chat chat = chats.Where(c => c.Id == id).First();
+                Chat chat = chats.FirstOrDefault(c=> c.Id == id);
                 chats.Remove(chat);
-
                 return RedirectToAction("Index");
             }
             catch
             {
                 return View();
             }
+
         }
     }
 }
