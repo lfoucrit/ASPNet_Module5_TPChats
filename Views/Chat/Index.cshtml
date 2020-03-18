@@ -1,0 +1,39 @@
+﻿@model IEnumerable<Module5_TP_Chat.Models.Chat>
+
+<h4>Index</h4>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Nom)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Age)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Couleur)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var chat in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => chat.Id)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => chat.Nom)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => chat.Age)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => chat.Couleur)
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = chat.Id }) |
+        @Html.ActionLink("Delete", "Delete", new { id = chat.Id })
+    </td>
+</tr>
+}
+
+</table>
